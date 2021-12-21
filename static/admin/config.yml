@@ -1,0 +1,313 @@
+publish_mode: editorial_workflow
+backend:
+  name: github
+  repo: hzi-braunschweig/serohub
+  open_authoring: true
+media_folder: "static/img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: 'studies'
+    label: 'Study'
+    folder: 'content/studies'
+    create: true
+    fields:
+      - label: "Study name"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "Project URL"
+        name: "project_url"
+        widget: "string"
+        required: false
+      - label: "Study Logo"
+        name: "logo_url"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: false
+      - label: "Study abbreviation"
+        name: "abbreviation"
+        widget: "string"
+        required: false
+      - label: "Study info"
+        name: study_info
+        collapsed: true
+        widget: "object"
+        fields:
+        - label: "Primary research question(s)"
+          name: "research_question"
+          widget: "markdown"
+          minimal: true
+          required: false
+        - label: "Used Diagnostic test"
+          name: "diagnostic_test"
+          widget: "list"
+          required: false
+          fields: 
+            - {label: "Test kit product name", name: "product", widget: "string", required: false}
+            - {label: "Test kit manufacturer", name: "company", widget: "string", required: false}
+            - {label: "Manufacturer address", name: "address", widget: "string", hint: "city and country is sufficient", required: false}
+            - {label: "Type of assay", name: "type", widget: "string", required: false}
+            - label: "Tested antibody classes (kit specific)"
+              name: "antibody_classes"
+              widget: "select"
+              multiple: true
+              required: false
+              options:
+              - { label: "IgG", value: "IgG" }
+              - { label: "IgM", value: "IgM" }
+              - { label: "IgA", value: "IgA" }
+              - { label: "other immune response", value: "other immune response" }
+              - { label: "not specified", value: "not specified" }
+        - label: "Tested antibody classes in the study"
+          name: "tested_antibody_classes"
+          widget: "select"
+          multiple: true
+          required: false
+          options:
+          - { label: "IgG", value: "IgG" }
+          - { label: "IgM", value: "IgM" }
+          - { label: "IgA", value: "IgA" }
+          - { label: "other immune response", value: "other immune response" }
+          - { label: "not specified", value: "not specified" }
+        - label: "Primary outcomes"
+          name: "primary_outcomes"
+          widget: "markdown"
+          minimal: true
+          required: false
+        - label: "Funding source(s)"
+          name: "funding_sources"
+          widget: "markdown"
+          minimal: true
+          required: false
+      - label: "Recruitment"
+        name: "recruitment"
+        collapsed: true
+        widget: "object"
+        fields:
+        - label: "Sampling Locations"
+          name: "location"
+          widget: "list"
+          required: false
+          fields:
+            - {label: "Place name", name: "place_name", widget: "string", required: true}
+            - {label: "Latitude", name: "latitude", widget: "number", valueType: "float", min: -90.0, max: 90.0, required: false}
+            - {label: "Longitude", name: "longitude", widget: "number", valueType: "float", min: -180.0, max: 180.0, required: false}
+        - label: "Country"
+          name: "country"
+          widget: "list"
+          required: false
+        - label: "Type of recruitment"
+          name: "type"
+          widget: "select"
+          multiple: false
+          required: false
+          options: 
+            - { label: "randomised individual invited voluntary", value: "randomised individual invited voluntary"}
+            - { label: "random walk", value: "random walk" }
+            - { label: "exploratory population-based cohort study", value: "exploratory population-based cohort study" }
+            - { label: "others", value: "others" }
+            - { label: "not specified", value: "not specified" }
+        - label: "Type of population"
+          name: "group"
+          widget: "select"
+          multiple: false
+          required: false
+          options:
+            - { label: "general population", value: "general population" }
+            - { label: "medical personnel", value: "medical personnel" }
+            - { label: "members of companies or organizations", value: "members of companies or organizations" }
+            - { label: "persons with defined exposure", value: "persons with defined exposure" }
+            - { label: "entire households", value: "entire households" }
+            - { label: "convalescent", value: "convalescent" }
+            - { label: "patients under treatment", value: "patients under treatment" }
+            - { label: "children", value: "children" }
+            - { label: "others", value: "others" }
+            - { label: "not specified", value: "not specified" }
+      - label: "Study values"
+        name: study_numbers
+        collapsed: true
+        widget: "object"
+        fields:
+        - label: "Study population"
+          name: "study_population"
+          widget: "number"
+          required: false
+        - label: "Total population in this area"
+          name: "population"
+          widget: "number"
+          required: false
+      - label: "Study key dates"
+        name: "study_dates"
+        collapsed: true
+        widget: "object"
+        fields:
+        - label: "Sampling start month"
+          name: "sample_start"
+          widget: "datetime"
+          format: "YYYY-MM"
+          default: ""
+          hint: "Stores the year and month when sampling started"
+          required: false
+        - label: "Sampling end month"
+          name: "sample_end"
+          widget: "datetime"
+          format: "YYYY-MM"
+          default: ""
+          hint: "Stores the year and month when sampling has ended / will end"
+          required: false
+        - label: "Study start"
+          name: "study_start"
+          widget: "datetime"
+          format: "YYYY-MM"
+          default: ""
+          hint: "Stores the year and month when the study starts"
+          required: false
+        - label: "Month of first expected results"
+          name: "study_first_results"
+          widget: "datetime"
+          format: "YYYY-MM"
+          default: ""
+          hint: "Stores the year and month when first results are expected"
+          required: false
+      - label: "Results"
+        name: results
+        collapsed: true
+        widget: "object"
+        fields:
+        - {label: "Preprint DOI", name: "doi_preprint", widget: "string", required: false}
+        - {label: "Journal DOI", name: "doi_journal", widget: "string", required: false}
+        - {label: "Data DOI", name: "doi_data", widget: "string", required: false}
+        - label: "Misc Sources"
+          name: "misc"
+          widget: "list"
+          fields:
+          - {label: "URL", name: "url", widget: "string", required: false}
+          - {label: "Description", name: "desc", widget: "string", required: false}
+          - {label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: false}
+      - label: "Study Principal Investigator (PI)"
+        name: study_pi
+        collapsed: true
+        widget: "object"
+        fields:
+        - label: "Name"
+          name: "name"
+          widget: "string"
+        - label: "Institution"
+          name: "institution"
+          widget: "string"
+        - label: "Contact email"
+          name: "email"
+          widget: "string"
+          required: false
+      - label: "Team Members"
+        name: team
+        widget: "list"
+        fields:
+          - {label: "Team role", name: "role", widget: "string", required: false}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Academic title", name: "title", widget: "string", required: false}
+          - {label: "Institution", name: "institution", widget: "string", required: false}
+          - {label: "Position at institution", name: "position", widget: "string", required: false}
+          - {label: "Contact email", name: "email", widget: "string", required: false}
+      - label: "Study overview"
+        name: "body"
+        widget: "markdown"
+  - name: 'publications'
+    label: 'Publication'
+    folder: 'content/publication'
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        required: false
+      - label: "Publication"
+        name: "publication"
+        widget: "string"
+        required: true
+      - label: "Publish date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        default: ""
+        required: false
+      - label: "Short abstract"
+        name: "abstract_short"
+        widget: "markdown"
+        required: false
+      - label: "Abstract"
+        name: "abstract"
+        widget: "markdown"
+        required: false
+      - label: "Main Image"
+        name: "image"
+        widget: "image"
+        allow_multiple: false
+        required: false
+      - label: "Thumbnail Image"
+        name: "image_preview"
+        widget: "image"
+        allow_multiple: false
+        required: false
+      - label: "Code URL"
+        name: "url_code"
+        widget: "string"
+        required: false
+      - label: "Dataset URL"
+        name: "url_dataset"
+        widget: "string"
+        required: false
+      - label: "PDF URL"
+        name: "url_pdf"
+        widget: "string"
+        required: false
+      - label: "Project URL"
+        name: "url_project"
+        widget: "string"
+        required: false
+      - label: "Slides URL"
+        name: "url_slides"
+        widget: "string"
+        required: false
+      - label: "Video URL"
+        name: "url_video"
+        widget: "string"
+        required: false
+      - label: "Additional information"
+        name: "body"
+        widget: "markdown"
+        default: ""
+  - name: 'posts'
+    label: 'General content'
+    folder: 'content/posts'
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        required: true
+      - label: "Publish date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:MM:SS"
+        required: true
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        allow_multiple: false
+        required: false     
+      - label: "Post"
+        name: "body"
+        widget: "markdown"
+        default: ""

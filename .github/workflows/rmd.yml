@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Render rmd file
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      -  main
+      -  feature/test-rmd
+  schedule:
+  - cron: "0 0 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  render:
+    name: Render R Markdown File
+    runs-on: ubuntu-latest
+    steps:
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        - uses: actions/checkout@v2
+        - uses: r-lib/actions/setup-r@v2
+        - uses: r-lib/actions/setup-pandoc@v2
+        - name: Install rmarkdown and flexdashboard
+          run: Rscript -e 'install.packages(c( "rmarkdown", "flexdashboard" ))'
+        - name: Render Sample Rmd File
+          run: Rscript -e 'rmarkdown::render("sample.Rmd", output_dir="static")'
+        - name: Commit results
+          run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add .  || echo "No changes to commit"
+            git commit -m "Sample dashboard"  || echo "No changes to commit"
+            git push  || echo "No changes to commit"

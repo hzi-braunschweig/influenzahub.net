@@ -1,0 +1,196 @@
+
+# layouts/index.html
+[FrontTitle]
+other = ""
+
+[FrontSubtitle]
+other = ""
+
+[FrontMapHeading]
+other = ""
+
+[FrontContribute]
+other = "Daten Teilen"
+
+[FrontContributeText]
+other = ""
+
+[FrontWhy]
+other = "Warum"
+
+[FrontWhyText]
+other = ""
+
+[FrontStayupdated]
+other = "Bleiben Sie auf dem Laufenden"
+
+[FrontPartner]
+other = "Teilnehmende Studien und Partner"
+
+# layouts/partials/footer.html
+[FooterText]
+other = "Sie können eine Studie hier anmelden"
+
+[FooterImprint]
+other = "Impressum"
+
+# layouts/shortcodes/share_data, and contribute.de.md
+[ContributeName]
+other = "Name"
+
+[ContributeEmail]
+other = "Email"
+
+[ContributeAffiliation]
+other = "Zugehörige Institution(en)"
+
+[ContributeStudyName]
+other = "Name der Studie"
+
+[ContributeDataUrl]
+other = "URL zu öffentlichen Dokumenten"
+
+[ContributeAccess]
+other = "Wer darf die Daten lesen?"
+[ContributeAccessPublic]
+other = "Öffentlich"
+[ContributeAccessContributors]
+other = "Studienleiter, die Daten teilen"
+[ContributeAccessDZIF]
+other = "Nur DZIF Mitglieder"
+[ContributeAccessPrivate]
+other = "Nur der Studienleiter (Privat)"
+
+[ContributeAuth]
+other = "Ich bestätige, dass ich die Berechtigung habe, die Informationen und Daten zu dieser Studie weiterzugeben"
+
+[ContributeDocuments]
+other = "Dokumente"
+
+[ContributeDocumentsText]
+other = "Teilen Sie studienrelevante Dokumente (z.B. Studienprotokoll, Fragebögen) und/oder fallbasierte Daten im Format des minimalen Datensatzes"
+
+[ContributeSend]
+other = "Weiterleitung zum sicheren Datenupload"
+
+[ContributeSendDoc]
+other = "Senden"
+
+[GerneralStudy]
+other = "Um Studiendetails ihrer Studie auf unserer Seite zu teilen können sie Studieninformationen auf deutsch oder english herunterladen, diese ausfüllen und uns zur Verfügung stellen via email an serohub@helmholtz-hzi.de"
+
+# layout/section/publication.html
+[PubButtonText]
+other = "Aufsatz Hinzufügen"
+
+[PubPreprints]
+other = "Diskussionspapiere"
+
+[PubPreprintsText]
+other = "Preprints, Arbeitspapiere oder Diskussionspapiere, die noch nicht einen formellen Peer-Review-Prozess unterzogen wurden."
+
+[PubPublished]
+other = "Veröffentlicht"
+
+[PubPublishedText]
+other = "Wissenschaftliche Arbeiten, die von Experten begutachtet und in einer wissenschaftlichen Zeitschrift veröffentlicht wurden."
+
+# layout/partials/pub-summary.html and pub-list.html
+[PubIconsAbstract]
+other = "Zusammenfassung"
+
+[PubIconsSlides]
+other = "Folien"
+
+[PubIconsData]
+other = "Daten"
+
+[PubIconsProject]
+other = "Projekt"
+
+
+# layouts/section/studies.html
+[StudiesButton]
+other = "Studie hinzufügen"
+
+[StudiesPeriod]
+other = "Beprobung"
+
+[StudiesLocation]
+other = "Ort(e)"
+
+[StudiesLocationCount]
+one = "{{.Count}} Ort"
+other = "{{.Count}} Orte"
+
+[StudiesName]
+other = "Studienname"
+
+[StudiesOutcome]
+other = "Primär Ziel"
+
+[StudiesOutcomeSec]
+other = "Sekundär Ziel"
+
+[StudiesPi]
+other = "Studienleiter/in"
+
+[StudiesTeam]
+other = "Teammitglieder"
+
+[StudiesInst]
+other = "Institut"
+
+[StudiesAbbr]
+other = "Projekt"
+
+# layouts/studies/single.html
+[StudiesEditButton]
+other = "Bearbeite die Studie"
+
+[StudiesOverview]
+other = "Übersicht"
+
+[StudiesMetadata]
+other = "Meta-Angaben"
+
+[StudiesSponsor]
+other = "Finanzierungsquellen"
+
+[StudiesRegion]
+other = "Region(en)"
+
+[StudiesResearchQuestion]
+other = "Forschungsfrage"
+
+[StudiesMethod]
+other = "Verwendete(r) diagnostische(r) Test(s)"
+
+[StudiesAntibody]
+other = "Antikörperklasse(n)"
+
+[StudiesSamplesize]
+other = "Stichprobenumfang N"
+
+[StudiesPopulationInArea]
+other = "Gesamtbevölkerung in der Region"
+
+[StudiesStart]
+other = "Studienbeginn"
+
+[StudiesFirstResults]
+other = "Erste Ergebnisse"
+
+
+# layouts/studies/single.html
+[StudiesPaginationNext]
+other = "Nächste"
+
+[StudiesPaginationPrev]
+other = "Vorige"
+
+[StudiesPaginationPage]
+other = "Studie"
+
+[sponsored]
+other = "Finanziert von"

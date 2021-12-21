@@ -1,0 +1,63 @@
+{{ define "top-bar-right" }}
+<!-- {{ partial "share.html" $ }} -->
+{{ partial "lang-switch.html" $ }}
+{{ end }}
+{{ define "title-bar-right" }}
+<!-- {{ partial "share.html" $ }} -->
+{{ partial "lang-switch.html" $ }}
+{{ end }}
+{{ define "main" }}
+<div class="row">
+  <div class="column small-12 medium-12"> 
+  <h1>{{.Title}}</h1>
+  <div class="post-metadata">
+    <a href="{{ "/admin/#"  | relURL }}" class="button hollow primary">{{ i18n "PubButtonText" }}</a>
+  </div>
+</div></div>
+<div class="row">
+  <!-- Load all publications in any language -->
+  {{ $pages := .Site.RegularPages }}
+  {{ range .Site.Home.Translations }}
+  {{ $pages = $pages | lang.Merge .Site.RegularPages }}
+  {{ end }}
+  
+  <div class="column small-12 medium-6">
+    <h2>{{ i18n "PubPreprints" }}</h2>
+    <p><small>*{{ i18n "PubPreprintsText" }}</small></p>
+    <!-- Find preprints, group pages my month -->
+    {{ range (where (where $pages "Params.publication_preprint" "!=" nil) "Params.publication_preprint" "!=" "").GroupByDate "2006-01" "desc" }}
+    <div class="row">
+      <div class="column small-2 medium-2">
+        <h3>{{ .Key }}</h3>
+      </div>
+      <div class="column small-10 medium-10">
+	<ul class="compact fa-ul">
+	  {{ range .Pages.ByDate.Reverse }}
+      <li>{{ partial "pub-summary" . }}</li>
+      {{ end }}
+	</ul>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  <div class="column small-12 medium-6">
+    <h2>{{ i18n "PubPublished" }}</h2>
+    <p><small>*{{ i18n "PubPublishedText" }}</small></p>
+    <!-- Find publications, group pages my month -->
+    {{ range (where (where $pages "Params.publication" "!=" nil) "Params.publication" "!=" "").GroupByDate "2006-01" "desc" }}
+    <div class="row">
+      <div class="column small-2 medium-2">
+        <h3>{{ .Key }}</h3>
+      </div>
+      <div class="column small-10 medium-10">
+	<ul class="compact fa-ul">
+	  {{ range .Pages.ByDate.Reverse }}
+	  <li>{{ partial "pub-summary" . }}</li>
+    {{ end }}
+	</ul>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

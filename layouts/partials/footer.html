@@ -1,0 +1,32 @@
+<footer class="whatisthis" style="padding:0%;">
+        <!--<hr />-->
+        <div class="row" style="margin:0%;">
+          <div class="column small-12 medium-3">
+              <a style="border:none;" href="{{ .Site.Params.sponsor_url }}" title="{{ .Site.Params.sponsor }}"><img src="{{.Site.Params.logo | absURL }}" alt="{{ .Site.Params.sponsor }}"></a>
+          </div>
+          <div class="column small-12 medium-3">
+
+            <p>
+              {{ .Site.Params.bio_full }}
+              {{ i18n "FooterText" }}:
+              <a href="{{ .Site.BaseURL }}{{ .Lang }}/contribute">{{ i18n "FrontContribute" }}</a>
+            </p>
+          </div>
+          <div class="column small-12 medium-3">
+            <ul class="fa-ul">
+              {{ range $.Site.Params.social }}
+              <li><i class="fa-li {{ .icon_pack }} {{ .icon_pack}}-{{ .icon }}" style="padding-top:3px;"></i><a href="{{ .link }}" target=_blank title="{{ .text }}" rel="external">{{ .text }}</a>{{ if .site}} on {{ .site }}{{ end }}</li>
+              {{ end }}
+            </ul>
+          </div>
+
+          <div class="column small-12 medium-3" style="margin-top: 3px;">
+            <a href="{{ .Site.BaseURL }}{{ .Lang }}/imprint">{{ i18n "FooterImprint"}}</a><br>
+            <a href="https://www.netlify.com"  target=_blank rel="external">
+              <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+            </a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank rel="external"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+
+  </div>
+        </div>
+      </footer>

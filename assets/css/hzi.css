@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+html {
+    height: 100vh;
+  }
+body {
+  display: flex;
+  flex-direction: column;
+  color: #002b4f;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: white;
+  font-size: 1em;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+  padding-top: 10px;
+  background-color: #002b4f;
+  color: white;
+}
+
+h1, h2 {
+  color: #005b9c;
+}
+
+/* Change heading font-sizes, fix #24
+ * overload "finite.css": h1 1.5rem, h2 1.25rem, h3 1.1875rem
+ **/
+ h1 {
+  font-size: 2.0rem; 
+  margin-top: 0 !important;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0.01rem !important;
+}
+h3 {
+  font-size: 1.1875rem;
+  margin-top: 1rem !important;
+}
+h4, h5, h6 {
+  font-size: 1.0rem;
+  margin-top: 1rem !important;
+}
+
+/* language switcher, enforce size => directly hacked into baseof.html **/
+/* .top-bar-right span {
+  padding: 0.7rem 0.8rem !important; 
+  line-height: 1 !important;
+} */
+
+/**/
+.row {
+  max-width: 150rem;
+  margin-bottom: 10px;
+}
+
+.banner img {
+  max-height: 25vh;
+}
+.top-bar,
+.title-bar,
+.nav-bar button,
+.nav-bar a,
+.nav-bar ul {
+    background-color: #002b4f;
+}
+
+.popout a {
+  background-color: transparent;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2em;
+}
+
+div.card {
+  background-color: #EDEDED;
+  border-style: solid;
+  border-color: #cfcfcf;
+  border-width: 0.1px;
+  margin-bottom: 1em;
+  padding-left: 1em;
+}
+
+div.card .fa {
+  color: #005b9c;
+}
+
+.endofpage { 
+  background-color: #002b4f;
+}
+a
+{
+    border-bottom: 1px dotted #002b4f;
+    color: #002b4f;
+}
+a:hover, a:active {
+  color: #e42312;
+}
+
+a h2 {
+  border-bottom: none;
+  color: #005b9c;
+}
+a:hover h2, a:active h2 {
+  color: #e42312;
+}
+
+footer h2, footer a h2, footer a {
+  border-color: white;
+  color: white;
+}
+
+
+.button.hollow.pub-link {
+  color: #002b4f;
+  border: 1px dotted #002b4f;
+}
+
+.button.hollow.primary {
+  border: 1px solid #e42312;
+  color: #e42312;
+}
+.button.hollow.primary:hover, .button.hollow.primary:active {
+
+  border: 1px solid #005b9c;
+  color: #005b9c;
+}
+.pub-icon {
+  color: #002b4f;
+}
+
+/* see layouts/studies/single.html **/
+#study-details tr td:nth-child(1) {
+  font-weight: bold; 
+  text-align: right;
+}
+#study-details tr td:nth-child(1)::after {
+  content: ":";
+}
+
+/*--BURGER MENU--*/
+/*Made by Erik Terwan
+24th of November 2015
+MIT License*/
+#menuToggle {
+  display: inline-block;
+  position: inline;
+  margin-top: .75em;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #002b4f;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: #e42312;
+}
+
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/* Just a quick hamburger */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: white;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* Transform all the slices of hamburger into a crossmark. */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #002b4f;
+}
+
+/* But let's hide the middle one. */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/* Ohyeah and the last one should go the other direction */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* Make this absolute positioned at the top left of the screen */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -5em;
+  padding: 50px 50px 50px 75px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+/* And let's slide it in from the left */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+/* font size for "study metadata", fix #25 
+ * overloads "finite.css" and "foundation.min.css"
+ **/
+ code.language-json {
+  font-size: 85%;
+}
+
+/* Study detail page, study logo **/
+#study-logo {
+  margin-bottom: 2.5rem;
+  margin-left: 0.1rem;
+}
+#study-logo img {
+  max-height: 12rem
+}
+#study-log-spacer {
+  height: 0;
+  line-height: 0;
+  font-size:0;
+  margin: 0;
+  padding: 0;
+}
+
+/*START Print document layout*/
+@media print {
+  /* Set page layout (top right bottom left) 
+   * hack the browser's headers/footers away
+   **/
+  @page {
+    margin: 2.0cm 2.0cm 6cm 2.5cm;
+  }
+  @page :first {
+    margin-top: 1.0cm !important;
+  }
+
+  /* hide header navigation and footer */
+  header nav, footer {
+    display: none;
+  }
+
+  h1{
+    text-transform: none;
+  }
+
+  h2{
+    padding-top: 10px;
+  }
+
+  /* Make HZI logo visible by filling background as white 
+   * Limit max. image width to 100%
+   **/
+  img{
+    background-color: #FFF !important;
+    color: #FFF !important;
+    -webkit-print-color-adjust: exact;
+    max-width: 100%;
+  }
+
+  div p{
+    margin-top: 10px;
+  }
+
+  a{
+    text-decoration: none !important;
+  }
+
+  .post-metadata{
+    display: none;
+  }
+
+  .post-body{
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  .pagination{
+    display: none;
+  }
+
+  /* Study detail page, study logo **/
+  #study-logo {
+    margin-bottom: 3rem;
+  }
+  #study-logo img {
+    max-height: 9rem;
+  }
+  #study-log-spacer {
+    height: 1cm;
+  }
+
+  /* hide the JSON meta data on the study details page **/
+  #study-meta-data-json {
+    display: none;
+  }
+  
+}/*END Print document layout*/
+
+
+.left{
+	float:left;
+	width:20%;
+	padding-top:20px;
+}
+
+.right{
+	float:left;
+	width:80%;
+}
+
+.thumb{
+	font-size: 3.6vmax;
+}
+
+@media only screen and (max-width: 640px) {
+ .thumb {
+	  font-size: 10vw;
+  }
+}
+
+@media (max-width: 1275px){
+  .share-box {
+    display: none;
+  }
+}
+
+
+/* Map settings **/
+#mapid {
+  min-height: 55vh;
+  max-width: 100%;
+}

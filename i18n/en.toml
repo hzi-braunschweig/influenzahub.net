@@ -1,0 +1,192 @@
+
+# layouts/index.html
+[FrontTitle]
+other = "Front Title"
+
+[FrontSubtitle]
+other = "Front Subtitle"
+
+[FrontMapHeading]
+other = "Front Map Heading"
+
+[FrontContribute]
+other = "Contribute"
+
+[FrontContributeText]
+other = ""
+
+[FrontWhy]
+other = "Why"
+
+[FrontWhyText]
+other = "Why text"
+
+[FrontStayupdated]
+other = "Stay up to date"
+
+[FrontPartner]
+other = "Participating Studies and Partners"
+
+
+# layouts/partials/footer.html
+[FooterText]
+other = "You can register a study here"
+
+[FooterImprint]
+other = "Imprint"
+
+# layouts/shortcodes/share_data, and contribute.md
+[ContributeName]
+other = "Your Name"
+
+[ContributeEmail]
+other = "Your Email"
+
+[ContributeAffiliation]
+other = "Your Affiliation(s)"
+
+[ContributeStudyName]
+other = "Study name"
+
+[ContributeDataUrl]
+other = "Data URL"
+
+[ContributeAccess]
+other = "Who can this data be shared with?"
+[ContributeAccessPublic]
+other = "Public"
+[ContributeAccessContributors]
+other = "Only PIs who contribute data"
+[ContributeAccessDZIF]
+other = "Only DZIF members"
+[ContributeAccessPrivate]
+other = "Me (Private)"
+
+[ContributeAuth]
+other = "I confirm I have the authorisation to share the information and any data relating to this study"
+
+[ContributeDocuments]
+other = "Documents"
+
+[ContributeDocumentsText]
+other = "Upload study related documents (e.g. Study protocol, Surveys) and case-based information in accordance to the minial dataset"
+
+[ContributeSend]
+other = "Redirect to secure file upload"
+
+[ContributeSendDoc]
+other = "Send"
+
+# layout/section/publication.html
+[PubButtonText]
+other = "Add Publication"
+
+[PubPreprints]
+other = "Preprints"
+
+[PubPreprintsText]
+other = "Scientific papers that have not been subjected to a formal peer review process."
+
+[PubPublished]
+other = "Published"
+
+[PubPublishedText]
+other = "Scientific papers that have been peer-reviewed and published in a scientific journal."
+
+# layout/partials/pub-summary.html and pub-list.html
+[PubIconsAbstract]
+other = "Abstract"
+
+[PubIconsSlides]
+other = "Slides"
+
+[PubIconsData]
+other = "Dataset"
+
+[PubIconsProject]
+other = "Project"
+
+# layouts/section/studies.html
+[StudiesButton]
+other = "Add a study"
+
+[StudiesPeriod]
+other = "Period"
+
+[StudiesLocation]
+other = "Location(s)"
+
+[StudiesLocationCount]
+one = "{{.Count}} location"
+other = "{{.Count}} locations"
+
+[StudiesName]
+other = "Study name"
+
+[StudiesOutcome]
+other = "Primary outcome"
+
+[StudiesOutcomeSec]
+other = "Secondary outcome"
+
+[StudiesPi]
+other = "Principal Investigator"
+
+[StudiesTeam]
+other = "Team members"
+
+[StudiesInst]
+other = "Institute"
+
+[StudiesAbbr]
+other = "Project"
+
+# layouts/studies/single.html
+[StudiesEditButton]
+other = "Edit study"
+
+[StudiesOverview]
+other = "Study Overview"
+
+[StudiesMetadata]
+other = "Study metadata"
+
+[StudiesSponsor]
+other = "Sources of Monetary or Material Support"
+
+[StudiesRegion]
+other = "Region(s)"
+
+[StudiesResearchQuestion]
+other = "Research Question"
+
+[StudiesMethod]
+other = "Diagnostic test(s) used"
+
+[StudiesAntibody]
+other = "Antibody class(es)"
+
+[StudiesSamplesize]
+other = "Study population N"
+
+[StudiesPopulationInArea]
+other = "Total population in the area"
+
+[StudiesStart]
+other = "Study start"
+
+[StudiesFirstResults]
+other = "First results expected"
+
+# layouts/studies/single.html
+[StudiesPaginationNext]
+other = "Next"
+
+[StudiesPaginationPrev]
+other = "Previous"
+
+[StudiesPaginationPage]
+other = "study"
+
+[sponsored]
+other = "Sponsored by"

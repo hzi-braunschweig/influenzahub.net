@@ -1,0 +1,150 @@
+{{ define "top-bar-right" }}
+<!-- {{ partial "share.html" $ }} -->
+{{ partial "lang-switch.html" $ }}
+{{ end }}
+{{ define "title-bar-right" }}
+<!-- {{ partial "share.html" $ }} -->
+{{ partial "lang-switch.html" $ }}
+{{ end }}
+
+{{ define "main" }}
+<div class="row" >
+
+  <div class="column medium-2">
+      <!-- place site logo here, for example: -->
+    <!-- <img src="{{ .Site.BaseURL }}img/serohub_logo.png" alt="{{.Title}}" style="max-height:15vh; text-align:center;" /> -->
+    <img src="" alt="" style="max-height:15vh; text-align:center;" />
+  </div>
+
+  <div class="column medium-8">
+    <h3>{{ i18n "FrontSubtitle" }}</h3>
+    <h1>{{ i18n "FrontTitle" }}</h1>
+      {{ .Content  }}
+  </div>
+
+{{ if .Site.Params.dashboard }}
+  <div class="column medium-2">
+	 
+    <a href="{{ .Site.Params.dashboard.url }}">{{ .Site.Params.dashboard.button }}</a>
+  </div>
+{{ end }}
+</div>
+
+<div class="row">
+  <div class="column small-12 medium-12 large-8">
+    <h2>{{ i18n "FrontMapHeading" }}</h2>
+    {{ if .Site.Params.leaflet_enable }}
+    {{ partial "leaflet.html" . }}
+    {{ end}}
+  </div>
+
+  <div class="column small-12 medium-12 large-4">
+
+    <!--
+    {{ partial "livetwitterfeed.html" . }}
+    -->
+    <div class="row">
+      <div class="column small-12 medium-4 large-6">
+        <h2>{{ i18n "FrontWhy" }}</h2>
+        <p>{{ i18n "FrontWhyText" }}</p>
+      </div>
+      <div class="column small-12 medium-4 large-6">
+        <h2>&nbsp;</h2>
+        <img src="{{ .Site.BaseURL }}{{.Params.image}}" alt="" style="max-height:20vh; margin-left:auto; margin-right:auto;" />
+      </div>
+
+      <div class="column small-12 medium-4 large-12">
+        <h2>{{ i18n "FrontContribute" }}</h2>
+        <p>{{ i18n "FrontContributeText" }}</p>
+        <a href="contribute" class="button hollow primary">{{ i18n "FrontContribute" }}</a>
+      </div>
+      <div class="column small-12 medium-4 large-12">
+        <div class="column small-3 medium-1 large-3" style="text-align: right;">
+          <p>{{ i18n "sponsored" }}:</p>
+        </div>
+        <div class="column small-12 medium-4 large-12" style="text-align: left;">
+          <img src="{{ .Site.BaseURL }}img/sponsor_logo2.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+
+  <div class="column small-12 medium-12">
+    <h2>{{ i18n "FrontStayupdated" }}</h2>
+  </div>
+
+  <div class="column small-12 medium-4 large-4">
+    <div class="card">
+		<div class="card-divider">
+			<a href="posts/">
+				<div class="left">
+					<i class="fa fa-newspaper-o thumb"></i>
+				</div>
+				<div class="right">
+					<h3>{{ .Site.Params.blogName }} <i class="fa fa-arrow-circle-right"></i></h3>
+				</div>
+			</a>
+		</div>
+		<div class="card-section">
+			<p>{{ .Site.Params.blogDescription }}</p>
+		</div>
+    </div>
+  </div>
+
+  <div class="column small-12 medium-4 large-4">
+    <div class="card">
+		<div class="card-divider">
+			<a href="studies/">
+				<div class="left">
+					<i class="fa fa-bar-chart thumb"></i>
+				</div>
+				<div class="right">
+					<h3>{{ .Site.Params.studiesName }} <i class="fa fa-arrow-circle-right"></i></h3>
+				</div>
+			</a>
+		</div>
+		<div class="card-section">
+			<p>{{ .Site.Params.studiesDescription }}</p>
+		</div>
+    </div>
+  </div>
+
+  <div class="column small-12 medium-4 large-4">
+    <div class="card">
+      <div class="card-divider">
+        <a href="publication/">
+			<div class="left">
+				<i class="fa fa-file-text-o thumb"></i>
+			</div>
+			<div class="right">
+				<h3 >{{ .Site.Params.publicationName }} <i class="fa fa-arrow-circle-right"></i></h3>
+			</div>
+		</a>
+      </div>
+      <div class="card-section">
+        <p>{{ .Site.Params.publicationDescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+  <div class="column small-12 medium-12 large-12 text-center">
+    <h2 style="margin-bottom: 2vh;">{{ i18n "FrontPartner" }}</h2>
+    {{ range where .Pages "Section" "studies" }}
+    {{ range .Pages }}
+    {{ if .Params.logo_url }}
+    <a href="{{ .Permalink }}" style="border: 0;">
+      <img src="{{ .Site.BaseURL }}{{ .Params.logo_url }}" style="width: 80%; max-width: 320px; margin: 5vw;" />
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

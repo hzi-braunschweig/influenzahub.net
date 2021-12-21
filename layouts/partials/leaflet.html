@@ -1,0 +1,61 @@
+<div id="mapid"></div>
+
+
+<script>
+    var mymap = L.map('mapid').setView([{{ .Site.Params.leaflet_central_lat }}, {{ .Site.Params.leaflet_central_long }}], 6);
+    
+    var pin = L.icon({
+    iconUrl: '/img/pin3.png',
+
+    iconSize:     [40, 46.188], // size of the icon
+    iconAnchor:   [4.0, 39.5164], // point of the icon which will correspond to marker's location
+    popupAnchor:  [28, -36] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abcd',
+      noWrap: true,
+      minZoom: 1,
+      maxZoom: 16,
+      ext: 'png'
+    }).addTo(mymap); 
+
+    {{ $.Scratch.Set "counter" 0 }}
+    {{ range .Site.Home.AllTranslations }}
+    {{ if eq .Lang "en" }}
+    {{ range where .Pages "Section" "studies" }}
+    {{ range .Pages }}
+      {{ $abbr := .Params.abbreviation }}
+      {{ $email := .Params.study_pi.email }}
+      {{ $inst := .Params.study_pi.institution }}
+      {{ $link := .Permalink }}
+      {{ range .Params.recruitment.location }}
+      {{ if .latitude }}
+      {{ if .longitude }}
+      var  marker_{{ $.Scratch.Get "counter" | safeJS }} = L.marker([{{ float .latitude }}, {{ float .longitude }}], {icon: pin}).addTo(mymap);
+      marker_{{ $.Scratch.Get "counter" | safeJS }}.bindPopup('<b><a href="{{ $link }}">{{ $abbr }}</a></b><br>{{ .place_name }}<br><a href="mailto://{{ $email }}">{{ $email }}</a><br>{{ $inst }}').openPopup();
+      {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+    mymap.closePopup();
+
+    mymap.on('zoomend', function() {
+        var currentZoom = mymap.getZoom();
+        pin = new L.Icon({
+            iconUrl: '/img/pin2.png',
+            iconSize: [mymap.getZoom*2, mymap.getZoom*2],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+        });
+        marker.setIcon(busIcon);
+    });
+
+    mymap.flyTo([20.0, 10.0], 2);
+</script>

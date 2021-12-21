@@ -1,0 +1,50 @@
+<div>
+    <!-- This the base endpoint to get a list of Ids -->
+  {{ $urlSearchPre := "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?"}}
+  <!-- This is the base endpoint to get a the information about the article associated with the ID -->
+  {{ $urlSummaryPre := "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?"}}
+
+  <!-- Define variables for shortcode call -->
+  {{$searchTerm := .Get "searchterm" }}
+  {{$minDate := .Get "mindate" }}
+  {{$maxDate := .Get "maxdate" }}
+  {{$articlesRetrieved := .Get "articlesretrieved" }}
+
+  <!-- Use getJSON with variables -->
+  {{ $dataSearch := getJSON $urlSearchPre "db=pubmed&datetype=pdat&mindate=" $minDate "&maxdate=" $maxDate "&retmode=json&retmax=" $articlesRetrieved "&term=" $searchTerm "&field=title&rettype=field" }}
+
+  <!-- Print user input on page -->
+<div class="row">
+    <div class="columns medium-3">
+        <h3>Search term(s): {{$searchTerm}}</h3>
+    </div>
+    <div class="columns medium-3">
+        <h3>Min date: {{$minDate}}</h3>
+    </div>
+    <div class="columns medium-3">
+        <h3>Max date: {{$maxDate}}</h3>
+    </div>
+    <div class="columns medium-3">
+        <h3>Articles Retrieved: {{$articlesRetrieved}}</h3>
+    </div>
+</div>
+
+<!-- First we range to get the idlist -->
+<article>
+  {{range $dataSearch.esearchresult.idlist }}
+      {{$articleId := . }}
+<!-- Use printf to concatenate article ID with data summary endpoint -->
+      {{$urlSummary := printf "%s%s" "db=pubmed&retmode=json&id=" $articleId}}
+<!-- printing the data that's a combination of the summary baseURL and the append from $urlSummary -->
+      {{ $dataSummary := getJSON $urlSummaryPre $urlSummary}}
+      {{$dataResult := $dataSummary.result }}
+      {{$stringifyId := string .}}
+      {{$articleData := index $dataResult $stringifyId }}
+    <div>
+      <h3><a target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/{{$articleId}}"> {{ safeHTML  $articleData.title }}</a></h3>
+      <p>Last author: {{ $articleData.lastauthor }} <small>{{ $articleData.elocationid }}</small></p>
+    </div>
+    {{ end }}
+    <i><a target="_blank" rel="noopener noreferrer" href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a> - as supplied by publisher</i>
+</article>
+</div>
