@@ -50,7 +50,7 @@ For changes to the website, there are a few key areas:
 
 For example, to change the value of the site name on the top left corner:
 
-![[Pasted image 20211220115747.png]]
+![](site-title.png)
 
 You would refer to the [title value in config.toml](https://github.com/hzi-braunschweig/influenza.net/blob/5502fa87bb4a632b9f55ce0eba04c7694c3391ec/config.toml#L15). Use the search function in your IDE/Code editor to speed up the process of finding the value you'd like to change. The variable names are descriptive.
 
@@ -89,7 +89,7 @@ This is a sample shortcode with the necessary parameters specified:
 ```
 
 Generating this output:
-![[Pasted image 20211220180737.png]]
+![](shortcode-sample.png)
 
 Remember that you simply place this shortcode within the markdown of whatever page you wish to add it to.
 
