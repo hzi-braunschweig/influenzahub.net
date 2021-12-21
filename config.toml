@@ -1,6 +1,6 @@
-baseurl = "https://angry-williams-842034.netlify.app/"
+baseurl = "https://influenza.net/"
 author = "Helmholtz HZI"
-copyright = "Copyright (c) 2020 Helmholtz HZI"
+copyright = "Copyright (c) 2021 Helmholtz HZI"
 canonifyurls = true
 paginate = 3
 theme="hugo-finite"
