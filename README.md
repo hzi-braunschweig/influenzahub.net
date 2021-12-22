@@ -179,7 +179,7 @@ A [video guide](https://www.youtube.com/watch?v=gp3D4mf6MHQ) on this process or 
 - Once in the account, click on the dropdown menu next to the account name on the top-right and select 'GitHub'. 
 - Make sure the repo you want to make citeable is public and flip the switch to make it a Zenodo-enabled repo. This means you allow Zenodo to create a DOI for this repo.
 - This is a good time to ensure your repo includes an appropriate license so that others know your sharing conditions.
-- On Github, create a release for the repo with a tag version, target branch, release title and release description.
+- On Github, [create a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) for the repo with a tag version, target branch, release title and release description.
 - After publishing the release, go back to Zenodo and hit "Sync" so that it processes the latest changes.
 - The repo is now enabled and Zenodo has generated a badge for it. Clicking the badge opens a modal with code in different programming languages for embedding into your project.
 - On Zenodo, click on the repo name and then the DOI link to access its metadata. You can then edit this if you'd like.
