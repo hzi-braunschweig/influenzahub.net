@@ -24,16 +24,16 @@ defaultContentLanguageInSubdir = true
     publicationDescription = "Publications description goes here"
   [languages.de]
     languageName = "Deutsch"
-    title = "LEOSS.sero-survey"
+    title = "Influenza survey"
     weight = 2
     sponsor_url = "https://www.helmholtz.de"
     bio_full = ""
-    blogName = ""
-    blogDescription = ""
-    studiesName = ""
-    studiesDescription = ""
-    publicationName = ""
-    publicationDescription = ""
+    blogName = "[Blog-Name] Blog"
+    blogDescription = "Blog-Beschreibung"
+    studiesName = "[Studienname] Studien"
+    studiesDescription = "Studienbeschreibung"
+    publicationName = "Publikationen"
+    publicationDescription = "Beschreibung der Veröffentlichungen hier"
 
 
 [params]
