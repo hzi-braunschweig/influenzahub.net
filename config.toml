@@ -122,3 +122,8 @@ home = ["HTML", "RSS", "JSON"]
 mediaType = "application/json"
 baseName = "studies"
 isPlainText =  true
+
+[caches]
+    [caches.getjson]
+    dir = ':cacheDir/:project'
+    maxAge = -1
