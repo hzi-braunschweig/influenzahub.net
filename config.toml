@@ -125,5 +125,5 @@ isPlainText =  true
 
 [caches]
     [caches.getjson]
-    dir = ':cacheDir/:project'
-    maxAge = -1
+        dir = ':cacheDir/:project'
+        maxAge = -1
