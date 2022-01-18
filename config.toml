@@ -1,4 +1,4 @@
-baseurl = "https://influenza.net/"
+baseurl = "https://influenzahub.net/"
 author = "Helmholtz HZI"
 copyright = "Copyright (c) 2021 Helmholtz HZI"
 canonifyurls = true
