@@ -1,7 +1,7 @@
 publish_mode: editorial_workflow
 backend:
   name: github
-  repo: hzi-braunschweig/serohub
+  repo: hzi-braunschweig/inflenzahub.net
   open_authoring: true
 media_folder: "static/img/uploads"
 public_folder: "/img/uploads"
