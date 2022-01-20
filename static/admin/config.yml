@@ -1,6 +1,7 @@
 publish_mode: editorial_workflow
 backend:
   name: github
+  branch: main
   repo: hzi-braunschweig/influenzahub.net
   open_authoring: true
 media_folder: "static/img/uploads"
