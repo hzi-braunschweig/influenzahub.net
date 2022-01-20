@@ -196,7 +196,7 @@ The user interface for adding and managing studies is built using the [Netlify C
 #### How it works
 
 The CMS is used to provide an interface to GitHub and Git activities behind the scenes.
-You can login with your Github account at [serohub.netlify.app/admin](https://serohub.netlify.app/admin).
+You can login with your Github account at [influenza.net/admin](https://influenzahub.net/admin).
 Please note,
 
 - You need to use a github account that has **NO access rights** to the [serohub repository](https://github.com/hzi-braunschweig/serohub). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
