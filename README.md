@@ -166,7 +166,7 @@ There are two steps to enable OAuth for the Netlify site.
 
 #### Register a new application.
 
-1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers).
+1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers) and click the button to register a new application. 
 
 2. For the **Authorization callback URL**, enter `https://api.netlify.com/auth/done`. Populate the other fields appropriately.
 
