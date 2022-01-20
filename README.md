@@ -187,7 +187,7 @@ When you've configured GitHub as an authentication provider, you can use it to o
 
 #### SSL
 
-Netlify can support custom SSL certificates to be associated with the intended domain of `serohub.helmholtz-hzi.de` The SSL can either be a letsencrypt managed certificate or it can support [a wildcard domain SSL](https://docs.netlify.com/domains-https/https-ssl/#custom-certificates). Note that the custom certificate route requires the SSL certificate to be updated manually, whenever a new one is issued.
+Netlify can support custom SSL certificates to be associated with the intended domain of `influenzahub.net` The SSL can either be a letsencrypt managed certificate or it can support [a wildcard domain SSL](https://docs.netlify.com/domains-https/https-ssl/#custom-certificates). Note that the custom certificate route requires the SSL certificate to be updated manually, whenever a new one is issued.
 
 ### Netlify CMS
 
@@ -199,8 +199,8 @@ The CMS is used to provide an interface to GitHub and Git activities behind the 
 You can login with your Github account at [influenza.net/admin](https://influenzahub.net/admin).
 Please note,
 
-- You need to use a github account that has **NO access rights** to the [serohub repository](https://github.com/hzi-braunschweig/serohub). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
-- If you are a maintainer or have any write access rights to [serohub repository](https://github.com/hzi-braunschweig/serohub), you will end with an error `Failed to persist entry: API_ERROR: Not Found` when trying to save a new blog entry.
+- You need to use a github account that has **NO access rights** to the [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
+- If you are a maintainer or have any write access rights to [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net), you will end with an error `Failed to persist entry: API_ERROR: Not Found` when trying to save a new blog entry.
 
 #### Content Editing using Netlify CMS
 
