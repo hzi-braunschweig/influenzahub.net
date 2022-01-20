@@ -55,7 +55,7 @@ For example, to change the value of the site name on the top left corner:
 
 ![](site-title.png)
 
-You would refer to the [title value in config.toml](https://github.com/hzi-braunschweig/influenza.net/blob/5502fa87bb4a632b9f55ce0eba04c7694c3391ec/config.toml#L15). Use the search function in your IDE/Code editor to speed up the process of finding the value you'd like to change. The variable names are descriptive.
+You would refer to the [title value in config.toml](https://github.com/hzi-braunschweig/influenzahub.net/blob/5502fa87bb4a632b9f55ce0eba04c7694c3391ec/config.toml#L15). Use the search function in your IDE/Code editor to speed up the process of finding the value you'd like to change. The variable names are descriptive.
 
 - [index.html](layouts/index.html) determines what the home page looks like. It may reference files in syntax like `{{ partial "leaflet.html" . }}` -- these are sub-templates and are found in [layouts/partials](layouts/partials)
 - [baseof.html](layouts/_default/baseof.html) describes header and footer content used across the site. This is where you would change things like JavaScript files, the nav bar, and the footer
@@ -107,10 +107,10 @@ You can find more information on using this API over on the [PubMed documentatio
 
 ### Get the repo locally
 
-1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/influenza.net.git`
+1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/influenzahub.net.git`
 2. If you're not a member of the organisation, fork the repo, then
-   - `git clone --recurse-submodules git@github.com:<your account>/influenza.net.git`
-   - `git remote add upstream https://github.com/hzi-braunschweig/influenza.net.git`
+   - `git clone --recurse-submodules git@github.com:<your account>/influenzahub.net.git`
+   - `git remote add upstream https://github.com/hzi-braunschweig/influenzahub.net.git`
 
 ### Get the submodule
 
@@ -196,7 +196,7 @@ The user interface for adding and managing studies is built using the [Netlify C
 #### How it works
 
 The CMS is used to provide an interface to GitHub and Git activities behind the scenes.
-You can login with your Github account at [influenza.net/admin](https://influenzahub.net/admin).
+You can login with your Github account at [influenzahub.net/admin](https://influenzahub.net/admin).
 Please note,
 
 - You need to use a github account that has **NO access rights** to the [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
