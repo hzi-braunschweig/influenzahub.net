@@ -47,7 +47,7 @@ When you are working on content for the site, you will be working almost exclusi
 
 ## Setting up your machine to make changes to the website
 
-Before following the steps below, please ensure that the changes you make can't be done via Netlify CMS. The checklist below allows you to set up your machine to make more advanced changes to the site. 
+Before following the steps below, please ensure that the changes you make can't be done via [Netlify CMS](#netlify-cms). The checklist below allows you to set up your machine to make more advanced changes to the site.
 
 You need to be a member of the [hzi-braunschweig organisation](https://github.com/hzi-braunschweig) on GitHub to make changes to the site.
 
@@ -58,8 +58,8 @@ Here's our recommended checklist:
 - [ ] Install Visual Studio Code [here](https://code.visualstudio.com/download).
 - [ ] As aforementioned, install Hugo. On Windows we recommend doing this using [Chocolatey](https://chocolatey.org/install) as the Hugo docs suggest.
 - [ ] Ensure your terminal is navigated to the folder where you would like your local version of the codebase.
-- [ ] Proceed to [getting things set up locally](#getting-things-set-up-locally) to perform the Git clone.
-- [ ] This may prompt you for an SSH key, follow this [video guide](https://www.youtube.com/watch?v=WgZIv5HI44o) carefully to set up an SSH key. This validates that your machine is an authorised member of the organisation. Ensure that you generate your SSH key passphrase securely and store it in a safe place.  
+- [ ] Proceed to [getting things set up locally](#getting-things-set-up-locally) to perform the Git clone and run Hugo webserver.
+- [ ] Attempting a Git clone may prompt you for an SSH key, follow this [video guide](https://www.youtube.com/watch?v=WgZIv5HI44o) carefully to set up an SSH key. This validates that your machine is an authorised member of the organisation. Ensure that you generate your SSH key passphrase securely and store it in a safe place.
 - [ ] Once authorised, you will need an elementary knowledge of Git to commit and push your changes to the local repository. There are many [resources online to learn from](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/).
 
 Optional steps:
@@ -189,7 +189,7 @@ There are two steps to enable OAuth for the Netlify site.
 
 #### Register a new application.
 
-1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers) and click the button to register a new application. 
+1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers) and click the button to register a new application.
 
 2. For the **Authorization callback URL**, enter `https://api.netlify.com/auth/done`. Populate the other fields appropriately.
 
