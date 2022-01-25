@@ -2,11 +2,42 @@
 
 This website is created by [Helmholtz HZI](https://www.helmholtz-hzi.de/en) to support the open collaboration of researchers around Influenza.
 
-## Get help
+- [Influenza](#influenza)
+- [Get help](#get-help)
+- [Contributing content](#contributing-content)
+- [Information about the website](#information-about-the-website)
+- [Setting up your machine to make changes to the website](#setting-up-your-machine-to-make-changes-to-the-website)
+- [Getting things set up locally](#getting-things-set-up-locally)
+  - [Get the repo locally](#get-the-repo-locally)
+    - [Get the submodule](#get-the-submodule)
+    - [Run hugo locally](#run-hugo-locally)
+- [Making changes to the website](#making-changes-to-the-website)
+  - [Config Files](#config-files)
+  - [Netlify CMS](#netlify-cms)
+    - [How it works](#how-it-works)
+    - [Content Editing using Netlify CMS](#content-editing-using-netlify-cms)
+  - [The FetchAPI Shortcode](#the-fetchapi-shortcode)
+- [Add a researcher](#add-a-researcher)
+  - [Publications](#publications)
+- [Infrastructure](#infrastructure)
+  - [GitHub](#github)
+  - [Hugo](#hugo)
+    - [Debugging Hugo](#debugging-hugo)
+  - [Netlify](#netlify)
+  - [Automated deployments](#automated-deployments)
+  - [Authentication](#authentication)
+    - [Enable OAuth for a Netlify Site](#enable-oauth-for-a-netlify-site)
+      - [Register a new application](#register-a-new-application)
+      - [Netlify Credentials settings](#netlify-credentials-settings)
+  - [SSL](#ssl)
+- [Making the site citeable](#making-the-site-citeable)
+- [Resources](#resources)
+
+# Get help
 
 For any issues with the site including typos or rendering issues, please file an [issue](https://github.com/INSERTREPO/issues) or send a pull request. The site automatically deploys once pull requests are merged.
 
-## Contributing content
+# Contributing content
 
 To contribute content, you can create a Pull Request with the content.
 
@@ -18,7 +49,7 @@ To contribute content, you can create a Pull Request with the content.
 
 An excellent place to learn about contributing science related blog posts is [ropensci technical guidelines](https://blogguide.ropensci.org/technical.html).
 
-### Information about the website
+# Information about the website
 
 This website was built using [Hugo](https://gohugo.io/).
 
@@ -45,7 +76,7 @@ Shortcodes are small snippets of HTML that can be added into a markdown content 
 
 When you are working on content for the site, you will be working almost exclusively with markdown files (.md). [Markdown is easy to learn](https://www.markdownguide.org/) and very well supported. **Just remember, if there is content you want to change on the body of a page, there's a markdown file for it**. There are some changes on the site you will need to make outside of markdown, which is discussed in the following section.
 
-## Setting up your machine to make changes to the website
+# Setting up your machine to make changes to the website
 
 Before following the steps below, please ensure that the changes you make can't be done via [Netlify CMS](#netlify-cms). The checklist below allows you to set up your machine to make more advanced changes to the site.
 
@@ -55,20 +86,40 @@ Here's our recommended checklist:
 
 - [ ] Ensure you're a hzi-braunschweig GitHub member.
 - [ ] Install Git Bash, [instructions for Windows here](https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/).
-- [ ] Install Visual Studio Code [here](https://code.visualstudio.com/download).
+- [ ] This process should also install Git on your system if it doesn't already exist. You should also confirm your [Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) is configured.
+- [ ] Install Visual Studio Code [here](https://code.visualstudio.com/download). It is recommended you **restart your machine after install**.
 - [ ] As aforementioned, install Hugo. On Windows we recommend doing this using [Chocolatey](https://chocolatey.org/install) as the Hugo docs suggest.
 - [ ] Ensure your terminal is navigated to the folder where you would like your local version of the codebase.
 - [ ] Proceed to [getting things set up locally](#getting-things-set-up-locally) to perform the Git clone and run Hugo webserver.
 - [ ] Attempting a Git clone may prompt you for an SSH key, follow this [video guide](https://www.youtube.com/watch?v=WgZIv5HI44o) carefully to set up an SSH key. This validates that your machine is an authorised member of the organisation. Ensure that you generate your SSH key passphrase securely and store it in a safe place.
-- [ ] Once authorised, you will need an elementary knowledge of Git to commit and push your changes to the local repository. There are many [resources online to learn from](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/).
+- [ ] Remember, cloning is just creating a local version of the codebase on your machine. So now you can view the repo folder in your computer's file explorer.
+- [ ] Once authorised and cloned, you can open the repo using Visual Studio Code and run Hugo webserver. You will need an elementary knowledge of Git to commit and push your changes to the local repository. There are many [resources online to learn from](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/), including this [guide on using Git with Visual Studio Code](https://yourbrainoncomputers.com/using-git-with-visual-studio-code-the-ultimate-guide/#Commit_a_Change_to_Git).
 
 Optional steps:
 
 - [ ] Learn the [basics of bash terminal](https://towardsdatascience.com/basics-of-bash-for-beginners-92e53a4c117a) (you only need to know how to use the terminal to move between file directories).
-- [ ] Improve your Visual Studio Code workflow by learning how to use [shortcuts to navigate between files](https://code.visualstudio.com/docs/editor/editingevolved#_quick-file-navigation) and learning how to use the [search function](https://code.visualstudio.com/docs/editor/codebasics#_search-across-files) to locate the field you want to change across files.
+- [ ] Improve your Visual Studio Code workflow by learning how to use [shortcuts to navigate between files](https://code.visualstudio.com/docs/editor/editingevolved#_quick-file-navigation), learning how to use the [search function](https://code.visualstudio.com/docs/editor/codebasics#_search-across-files) to locate the field you want to change across files, and [enabling autosave](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
 
+# Getting things set up locally
 
-## Making changes to the website
+## Get the repo locally
+
+1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/influenzahub.net.git`
+2. If you're not a member of the organisation, fork the repo, then
+   - `git clone --recurse-submodules git@github.com:<your account>/influenzahub.net.git`
+   - `git remote add upstream https://github.com/hzi-braunschweig/influenzahub.net.git`
+
+### Get the submodule
+
+We use a theme [hugo-infinite](https://github.com/lambdafu/hugo-finite) as the basis for the site. The `--recurse-submodules` argument in `git clone` will have established a connection. _You should not make changes to contents in the submodule_ instead, you should copy files from the themes structure and paste them into the corresponding section of the main repository and edit it there. You only work with the submodule contents directly if you want to fix a bug and that is best done with a fresh fork of the theme directly from the theme's repository.
+
+### Run hugo locally
+
+From inside the website directory, run `hugo serve` to get a live local copy (typically on <http://localhost:1313>) that will update whenever you make changes.
+
+# Making changes to the website
+
+## Config Files
 
 For changes to the website, there are a few key areas:
 
@@ -85,27 +136,28 @@ You would refer to the [title value in config.toml](https://github.com/hzi-braun
 - [share_study.md](content/share_study.md) contains the html used to generate the contact form that will submit the contents to netlify. Note the Netlify free tier has an upload limit of 10Mb per month. This is _not_ a long-term solution.
 - [hzi.css](assets/hzi.css) is the custom style sheet for the website. Use this to tweak or override the website appearance.
 
-## Add a researcher
+## Netlify CMS
 
-If you would like to add a researcher, the general content steps are taken but instead of generating files with markdown you amend the [Researcher list](data/researchers.csv).
+The user interface for adding and managing studies is built using the [Netlify CMS](https://www.netlifycms.org/).
 
-### Publications
+### How it works
 
-The default site (en):
+The CMS is used to provide an interface to GitHub and Git activities behind the scenes.
+You can login with your Github account at [influenzahub.net/admin](https://influenzahub.net/admin).
+Please note,
 
-- The folder `content/publication` contains the reference to scientific papers. **It's our main folder to curate publications!**
-- Each `.md` refers to one scientific paper, and is named by its DOI, e.g. `10.1101-2020.05.18.20103283.md`
-- The markdown files are organized by the publisher, e.g. `content/publication/biorxiv/10.1101-2020.05.18.20103283.md`
+- You need to use a github account that has **NO access rights** to the [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
+- If you are a maintainer or have any write access rights to [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net), you will end with an error `Failed to persist entry: API_ERROR: Not Found` when trying to save a new blog entry.
 
-The language-specific sites (e.g. de):
+### Content Editing using Netlify CMS
 
-- The majority of scientific papers are written in English language.
-- In `config.toml` each language (except `en`) has an additional content folder defined, e.g. `contentDir="content_de"` for the German site.
-- In order to display English papers, we will copy/mirror whole folders to the language-specific directory, e.g. `cp content/publication/biorxiv content_de/publication/biorxiv`
+If you are editing content using the CMS the workflow is easy to follow from the [Netlify guide](https://www.netlifycms.org/docs/intro/).
 
-## The fetchapi shortcode
+Under participating studies and partners, the media is being imported through Netlify CMS within the uploads folder.
 
-This is a custom shortcode to draw in articles from the PubMed database. You can specify which articles you'd like by entering your search term(s), a date range, and the number of articles to retrieve -- although you should be careful not to retrieve too many at once as it will make too many requests to the API.
+## The FetchAPI Shortcode
+
+This is a custom [shortcode](https://gohugo.io/content-management/shortcodes/) to draw in articles from the PubMed database. You can specify which articles you'd like by entering your search term(s), a date range, and the number of articles to retrieve -- although you should be careful not to retrieve too many at once as it will make too many requests to the API.
 
 This is a sample shortcode with the necessary parameters specified:
 
@@ -126,35 +178,36 @@ The two parameters (mindate, maxdate) must be used together to specify an arbitr
 
 You can find more information on using this API over on the [PubMed documentation](https://www.ncbi.nlm.nih.gov/books/NBK25499/).
 
-## Getting things set up locally
+# Add a researcher
 
-### Get the repo locally
+If you would like to add a researcher, the general content steps are taken but instead of generating files with markdown you amend the [Researcher list](data/researchers.csv).
 
-1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/influenzahub.net.git`
-2. If you're not a member of the organisation, fork the repo, then
-   - `git clone --recurse-submodules git@github.com:<your account>/influenzahub.net.git`
-   - `git remote add upstream https://github.com/hzi-braunschweig/influenzahub.net.git`
+## Publications
 
-### Get the submodule
+The default site (en):
 
-We use a theme [hugo-infinite](https://github.com/lambdafu/hugo-finite) as the basis for the site. The `--recurse-submodules` argument in `git clone` will have established a connection. _You should not make changes to contents in the submodule_ instead, you should copy files from the themes structure and paste them into the corresponding section of the main repository and edit it there. You only work with the submodule contents directly if you want to fix a bug and that is best done with a fresh fork of the theme directly from the theme's repository.
+- The folder `content/publication` contains the reference to scientific papers. **It's our main folder to curate publications!**
+- Each `.md` refers to one scientific paper, and is named by its DOI, e.g. `10.1101-2020.05.18.20103283.md`
+- The markdown files are organized by the publisher, e.g. `content/publication/biorxiv/10.1101-2020.05.18.20103283.md`
 
-### Run hugo locally
+The language-specific sites (e.g. de):
 
-From inside the website directory, run `hugo serve` to get a live local copy (typically on <http://localhost:1313>) that will update whenever you make changes.
+- The majority of scientific papers are written in English language.
+- In `config.toml` each language (except `en`) has an additional content folder defined, e.g. `contentDir="content_de"` for the German site.
+- In order to display English papers, we will copy/mirror whole folders to the language-specific directory, e.g. `cp content/publication/biorxiv content_de/publication/biorxiv`
 
-## Infrastructure
+# Infrastructure
 
-### GitHub
+## GitHub
 
 We will host the solution on Netlify with the source files hosted on GitHub. This will
 enable HZI researchers to work in an open way and accept collaborations from others.
 
-### Hugo
+## Hugo
 
 This website uses [Hugo](https://gohugo.io). To work with Hugo locally, you will need to [install it](https://gohugo.io/getting-started/quick-start/).
 
-#### Debugging Hugo
+### Debugging Hugo
 
 If you are opening a local Hugo server for content editing you will only likely receive spacing and indentation errors within [toml](https://github.com/toml-lang/toml)/[yaml](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html). Double check that you have enclosed your value in speech marks and closed it properly.
 
@@ -164,30 +217,30 @@ If you are venturing further into Hugo and making templating changes, the [templ
 
 "Contribute", "About" and "Test" are all [menu items](https://gohugo.io/content-management/menus/). From the front matter you can see that they are added to the top nav via [Hugo's menu system](https://gohugo.io/content-management/menus/#readout).
 
-### Netlify
+## Netlify
 
 The website is hosted on [Netlify](https://netlify.com).
 
 The CMS works using a principle called [Open Authoring](https://www.netlifycms.org/docs/open-authoring/). You can see this configured in the CMS configuration [here](https://github.com/hzi-braunschweig/influenzahub.net/blob/0903702fb23c7ba675ae74bd91f02430c49212c8/static/admin/config.yml#L5).
 
-#### Automated deployments
+## Automated deployments
 
 The website is automatically updated everytime there is a change to the master branch in GitHub. Additionally, any pull requests or branches will also have preview URLs built. The preview links for Pull Requests will be included in the Pull Request interface on GitHub.
 
-#### Authentication
+## Authentication
 
 The Netlify hosting has Visitor access > OAuth authentication enabled with a [GitHub OAuth application](https://developer.github.com/apps/building-oauth-apps/) - this is important for the Netlify CMS to support open authoring.
 
 Below are the steps to configure authentication:
 
-#### Enable OAuth for a Netlify Site
+### Enable OAuth for a Netlify Site
 
 There are two steps to enable OAuth for the Netlify site.
 
 1. [Register a new OAuth application with GitHub](#register-a-new-application)
 2. [Configure credentials in Netlify](#netlify-credentials-settings)
 
-#### Register a new application.
+#### Register a new application
 
 1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers) and click the button to register a new application.
 
@@ -207,31 +260,11 @@ When you complete application registration with GitHub, you need to add the Clie
 
 When you've configured GitHub as an authentication provider, you can use it to obtain an access token in your application. Check out demos to do this [here](https://github.com/netlify/netlify-auth-demo).
 
-
-#### SSL
+## SSL
 
 Netlify can support custom SSL certificates to be associated with the intended domain of `influenzahub.net` The SSL can either be a letsencrypt managed certificate or it can support [a wildcard domain SSL](https://docs.netlify.com/domains-https/https-ssl/#custom-certificates). Note that the custom certificate route requires the SSL certificate to be updated manually, whenever a new one is issued.
 
-### Netlify CMS
-
-The user interface for adding and managing studies is built using the [Netlify CMS](https://www.netlifycms.org/).
-
-#### How it works
-
-The CMS is used to provide an interface to GitHub and Git activities behind the scenes.
-You can login with your Github account at [influenzahub.net/admin](https://influenzahub.net/admin).
-Please note,
-
-- You need to use a github account that has **NO access rights** to the [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net). When you write a blog post ("General Content"), a study, or publication, it will create a fork of the repository in the users account and they can perform edits that will become pull requests for serohub maintainers to approve.
-- If you are a maintainer or have any write access rights to [influenzahub.net repository](https://github.com/hzi-braunschweig/influenzahub.net), you will end with an error `Failed to persist entry: API_ERROR: Not Found` when trying to save a new blog entry.
-
-#### Content Editing using Netlify CMS
-
-If you are editing content using the CMS the workflow is easy to follow from the [Netlify guide](https://www.netlifycms.org/docs/intro/).
-
-Under participating studies and partners, the media is being imported through Netlify CMS within the uploads folder.
-
-## Making the site citeable
+# Making the site citeable
 
 To make open-source code citeable we can assign it a DOI. This is essentially a way of presenting the entire repo as a scholarly work available for citation. Our recommended way to do this is to link the GitHub repository to Zenodo.
 
@@ -247,7 +280,7 @@ A [video guide](https://www.youtube.com/watch?v=gp3D4mf6MHQ) on this process or 
 - The repo is now enabled and Zenodo has generated a badge for it. Clicking the badge opens a modal with code in different programming languages for embedding into your project.
 - On Zenodo, click on the repo name and then the DOI link to access its metadata. You can then edit this if you'd like.
 
-## Resources
+# Resources
 
 - Git
   - [GitHub guides](https://guides.github.com/)
