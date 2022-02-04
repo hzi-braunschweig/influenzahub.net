@@ -8,7 +8,8 @@ authors:
   - Berit Lange
 publication: Journal of Infection, Volume 82, Issue 1, 2021, Pages 1-35, ISSN 0163-4453,
 date: 2021-08-15
-abstract_short: >-
+abstract_short: ""
+abstract: >-
   Abstract: Objectives
 
   To better understand the impact of comprehensive COVID-19 targeted non-pharmaceutical interventions (NPIs) on influenza burden worldwide.
@@ -24,7 +25,8 @@ abstract_short: >-
   Conclusions
 
   Evidence synthesis suggests that NPIs targeted at SARS-CoV-2-transmission reduce influenza burden as well. Low threshold NPIs need to be more strongly emphasized in influenza prevention strategies.
-url_code: https://www.sciencedirect.com/science/article/pii/S0163445320307568
-url_slides: https://doi.org/10.1016/j.jinf.2020.11.039.
+url_code: ""
+url_pdf: https://www.sciencedirect.com/science/article/pii/S0163445320307568
+url_slides: ""
 ---
 Keywords: Systematic review; Influenza; Flu; COVID-19; SARS-CoV-2; Non-pharmaceutical interventions; Surveillance
