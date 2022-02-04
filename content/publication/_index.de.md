@@ -2,7 +2,7 @@
 title: Impact of non-pharmaceutical interventions targeted at COVID-19 pandemic
   on influenza burden – a systematic review
 authors:
-  - Lara MarleenFricke
+  - Lara Marleen Fricke
   - Stephan Glöckner
   - Maren Dreier
   - Berit Lange
