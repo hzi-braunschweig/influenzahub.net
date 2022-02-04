@@ -10,4 +10,4 @@ data:
 
 Dies ist die deutsche Seite für den Shortcode-Test.
 
-{{< fetchapi searchterm="influenza+SARS-CoV-2" articlesretrieved="10" mindate="2021/10" maxdate="2022/02" >}}
+{{< fetchapi searchterm="influenza+SARS-CoV-2" articlesretrieved="4" mindate="2021/10" maxdate="2022/02" >}}
